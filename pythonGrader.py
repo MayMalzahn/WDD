@@ -1,0 +1,11 @@
+import sys
+name = raw_input("Please enter student name: ")
+assignName = raw_input("Please enter assignment name: ")
+grade = raw_input("Please enter grade: ")
+print(name+"@fullsail.edu")
+if int(grade) < 60 :print("Here is the grade for "+assignName+": F")
+elif int(grade) >= 60 and int(grade) < 70:print("Here is the grade for "+assignName+": D")
+elif int(grade) >= 70 and int(grade) < 80:print("Here is the grade for "+assignName+": C")
+elif int(grade) >= 80 and int(grade) < 90:print("Here is the grade for "+assignName+": B")
+elif int(grade) >= 90:print("Here is the grade for "+assignName+": A")
+else: print("Hmm...I do not recognize that grade as a number.")
