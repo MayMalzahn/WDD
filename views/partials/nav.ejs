@@ -2,24 +2,34 @@
 	<div class="container">
 	<li>
 <% if (pagename=="Home") {%>
-	<a class="nav-link" style="color:orange" href="/"></a>
+	<a class="nav-link" style="color:orange" href="/">Home</a>
 <%}else{%>
-	<a class="nav-link" href="/"></a>
+	<a class="nav-link" href="/">Home</a>
 <%}%>
 	</li>
 <li>
 <% if (pagename=="About") {%>
-	<a class="nav-link" style="color:orange" href="/About"></a>
+	<a class="nav-link" style="color:orange" href="/About">About</a>
 <%}else{%>
-	<a class="nav-link" href="about"></a>
+	<a class="nav-link" href="/about">About</a>
 <%}%>
 	</li>
 <li>
 <% if (pagename=="Stuff") {%>
-	<a class="nav-link" style="color:orange" href="/Stuff"></a>
+	<a class="nav-link" style="color:orange" href="/Stuff">Stuff</a>
 <%}else{%>
-	<a class="nav-link" href="/"></a>
+	<a class="nav-link" href="/stuff">Stuff</a>
 <%}%>
 	</li>
+		
+<%if(typeof(sess)!= "undefined" && sess.loggedin == true){%>
+			<a class="nav-link" href="/profile">Profile</a>
+			<a class="nav-link" href="/logout">Logout</a>
+		<%}%>		
 	</div>
 </nav>	
+
+<% if(typeof(errors)!= "undefined"){%>
+	<% for(x in errors){%>
+	<br><span>ERRORS:<%=errors[x]%></span>
+<%}}%>
