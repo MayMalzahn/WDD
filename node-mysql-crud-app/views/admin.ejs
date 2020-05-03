@@ -10,16 +10,21 @@
 			<h2>Items</h2>
 			<div class="container">
 				<input type="text" name="itemName" placeholder="Item Name" id="itemName">
-				<button type="button" class="btn btn-success" onclick="add()">Add</button>
+				<button type="submit" class="btn btn-success">Add</button>
 				<%console.log(items[0].name)%>
+				<div id="itemArea">
 				<%for(var i = 0; i<items.length; i++){%>
+					<form>
 					<div class="row">
 					<div class="col"><%=items[i].name%></div>
-					<div class="col"><button type="button" class="btn btn-warning" onclick="ed(<%=items[i].id%>)">Edit</button></div>
-					<div class="col"><button type="button" class="btn btn-danger" onclick="del(<%=items[i].id%>)">Delete</button></div>
+					<div class="col"><button type="submit" class="btn btn-warning">Edit</button></div>
+					<div class="col"><button type="submit" class="btn btn-danger">Delete</button></div>
 					</div>
+					</form>
 				<%}%>
+				</div>
 			</div>
 		</div>
 	</body>
 </html>
+

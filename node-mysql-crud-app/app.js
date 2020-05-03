@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 const session = require("express-session");
 const {getUsers} = require('./routes/index');
-const {getItems} = require('./routes/admin');
+const {getItems, del, add, ed} = require('./routes/admin');
 
 var con = mysql.createConnection({
  host: "localhost",
@@ -63,11 +63,18 @@ app.post("/login",function(req,res){
 	   sess =req.session;
 	   sess.loggedin = true;
 		app.get("/admin", getItems);
+		app.get("/admin", del);
+		app.get("/admin", add);
+		app.get("/admin", ed);
 		}
 	else{
 		app.get("/", getUsers);
 			}})
-
+//these are here so i can test the admin page despite the login varification not working
+app.get("/admin", getItems);
+app.get("/admin", del);
+app.get("/admin", add);
+app.get("/admin", ed);
 app.use(express.static("public"));
 var server = app.listen("8080");
 
