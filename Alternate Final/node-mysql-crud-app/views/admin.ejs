@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/styles.css">
+	</head>
+	<body>
+		<%- include("partials/header")%>
+		<div>
+			<h2>Items</h2>
+			<div class="container">
+				<form method="POST" action="/admin/add/"  enctype="multipart/form-data">
+				<input type="text" name="itemNameAdd" placeholder="Item Name" id="itemNameAdd" value="banana" required>
+				<input type="submit" class="btn btn-success">
+				</form>
+				<%console.log(items[0].name)%>
+				<div id="itemArea">
+				<%for(var i = 0; i<items.length; i++){%>
+					<div class="row">
+					<form class="col" enctype="multipart/form-data" action="<%="/admin/ed/"+items[i].id%>" method="post"><input type="text"  placeholder="Edit item name here" name="<%="itemEdit"+items[i].id%>" id="<%="itemEdit"+items[i].id%>" value="<%=items[i].name%>">
+					<div class="col"><button type="submit" class="btn btn-warning">Edit</button></div></form>
+					<form enctype="multipart/form-data" action=<%="/admin/del/"+items[i].id%>><div class="col"><button type="submit" class="btn btn-danger">Delete</button></div></form>
+					</div>
+				<%}%>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
