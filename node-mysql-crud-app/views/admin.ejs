@@ -1,0 +1,25 @@
+ <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/css/styles.css">
+	</head>
+	<body>
+		<%- include("partials/header")%>
+		<div>
+			<h2>Items</h2>
+			<div class="container">
+				<input type="text" name="itemName" placeholder="Item Name" id="itemName">
+				<button type="button" class="btn btn-success" onclick="add()">Add</button>
+				<%console.log(items[0].name)%>
+				<%for(var i = 0; i<items.length; i++){%>
+					<div class="row">
+					<div class="col"><%=items[i].name%></div>
+					<div class="col"><button type="button" class="btn btn-warning" onclick="ed(<%=items[i].id%>)">Edit</button></div>
+					<div class="col"><button type="button" class="btn btn-danger" onclick="del(<%=items[i].id%>)">Delete</button></div>
+					</div>
+				<%}%>
+			</div>
+		</div>
+	</body>
+</html>
